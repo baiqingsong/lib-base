@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dawn.library">
+
+    <!--
+        注意：本库不再主动声明权限，由使用方根据实际用到的功能按需声明。
+        以下是各工具类可能需要的权限参考：
+
+        LNetUtil: ACCESS_NETWORK_STATE, CHANGE_NETWORK_STATE, ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, INTERNET
+        LDeviceUtil: ACCESS_WIFI_STATE
+        LSystemUtil: REQUEST_INSTALL_PACKAGES
+        LFileUtil: READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE (Android 10以下)
+        LCrashHandlerUtil: WRITE_EXTERNAL_STORAGE (Android 10以下)
+    -->
+
+</manifest>

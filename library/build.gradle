@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 28
+        targetSdk 34
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    implementation files('libs/lite-orm-1.9.1.jar')
+    api 'com.google.code.gson:gson:2.10.1'
+
+    // RxJava3 (RxTask依赖)
+    api 'io.reactivex.rxjava3:rxjava:3.1.8'
+    api 'io.reactivex.rxjava3:rxandroid:3.0.2'
+
+    // 文件工具类（compileOnly，不打包到 AAR，使用方需自行引入）
+    compileOnly 'com.github.baiqingsong:lib-file:1.0.2'
+}
