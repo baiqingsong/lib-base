@@ -166,7 +166,9 @@ public class LCipherUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            LFileUtil.closeIO(in);
+            if (in != null) {
+                try { in.close(); } catch (IOException ignored) { }
+            }
         }
         return null;
     }

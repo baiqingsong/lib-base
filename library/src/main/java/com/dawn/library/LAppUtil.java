@@ -19,6 +19,17 @@ import java.io.File;
 @SuppressWarnings("unused")
 public class LAppUtil {
 
+    private static void deleteFileByDirectory(File dir) {
+        if (dir != null && dir.exists() && dir.isDirectory()) {
+            File[] children = dir.listFiles();
+            if (children != null) {
+                for (File child : children) {
+                    child.delete();
+                }
+            }
+        }
+    }
+
     /**
      * 获取版本名称
      * @param context 上下文
@@ -166,7 +177,7 @@ public class LAppUtil {
      * @param context 上下文
      */
     public static void cleanCache(Context context) {
-        LFileUtil.deleteFileByDirectory(context.getCacheDir());
+        deleteFileByDirectory(context.getCacheDir());
     }
 
     /**
@@ -175,7 +186,7 @@ public class LAppUtil {
      */
     public static void cleanDatabases(Context context) {
         String filepath = context.getFilesDir().getParent() + File.separator + "databases";
-        LFileUtil.deleteFileByDirectory(new File(filepath));
+        deleteFileByDirectory(new File(filepath));
     }
 
     /**
@@ -184,7 +195,7 @@ public class LAppUtil {
      */
     public static void cleanSharedPreference(Context context) {
         String filepath = context.getFilesDir().getParent() + File.separator + "shared_prefs";
-        LFileUtil.deleteFileByDirectory(new File(filepath));
+        deleteFileByDirectory(new File(filepath));
     }
 
     /**

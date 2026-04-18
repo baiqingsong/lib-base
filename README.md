@@ -22,11 +22,6 @@ dependencies {
 }
 ```
 
-> **注意**: 文件操作工具类 `LFileUtil` 已迁移至独立库 [lib-file](https://github.com/baiqingsong/lib-file)，使用时需额外添加：
-> ```groovy
-> implementation 'com.github.baiqingsong:lib-file:1.0.2'
-> ```
-
 ## 权限
 
 根据实际使用的工具类，在 `AndroidManifest.xml` 中添加对应权限：
