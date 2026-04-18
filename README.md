@@ -32,13 +32,7 @@ dependencies {
 根据实际使用的工具类，在 `AndroidManifest.xml` 中添加对应权限：
 
 ```xml
-<!-- 网络相关 (LNetUtil) -->
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-
-<!-- 存储相关 (LLog, LCrashHandlerUtil, LBitmapUtil) -->
+<!-- 存储相关 (LCrashHandlerUtil) -->
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -68,27 +62,6 @@ dependencies {
 | `cleanDatabases(Context)` | 清除应用内部数据库 |
 | `cleanSharedPreference(Context)` | 清除应用 SharedPreferences |
 | `isDebug(Context)` | 判断是否为 Debug 模式 |
-
-### `com.dawn.library.LBitmapUtil` 图片工具类
-
-| 方法 | 说明 |
-|------|------|
-| `scaleBitmap(Bitmap, float)` | 按比例缩放 |
-| `scaleBitmap(Bitmap, int, int)` | 按指定尺寸缩放 |
-| `rotateBitmap(Bitmap, float)` | 旋转图片 |
-| `toCircle(Bitmap)` | 裁剪为圆形 |
-| `toRoundCorner(Bitmap, float)` | 裁剪为圆角 |
-| `bitmapToBytes(Bitmap, CompressFormat, int)` | Bitmap 转 byte 数组 |
-| `bytesToBitmap(byte[])` | byte 数组转 Bitmap |
-| `bitmapToBase64(Bitmap, CompressFormat, int)` | Bitmap 转 Base64 |
-| `base64ToBitmap(String)` | Base64 转 Bitmap |
-| `saveBitmap(Bitmap, File, CompressFormat, int)` | 保存到文件 |
-| `decodeSampledBitmap(String, int, int)` | 从文件采样解码（防 OOM） |
-| `decodeSampledBitmapFromResource(Context, int, int, int)` | 从资源采样解码 |
-| `flipHorizontal(Bitmap)` | 水平翻转 |
-| `flipVertical(Bitmap)` | 垂直翻转 |
-| `getImageSize(String)` | 获取图片宽高 |
-| `recycleBitmap(Bitmap)` | 安全回收 Bitmap |
 
 ### `com.dawn.library.LCipherUtil` 加密工具类
 
@@ -251,47 +224,6 @@ dependencies {
 | `listToJson(List)` | 集合转 JSON 字符串 |
 | `jsonToList(String, Class)` | JSON 字符串转集合 |
 
-### `com.dawn.library.LLog` 日志工具类
-
-| 方法 | 说明 |
-|------|------|
-| `init(Context, boolean, String)` | 初始化日志（指定开关和 TAG） |
-| `init(Context, boolean, String, String)` | 初始化日志（指定路径） |
-| `v(String)` | VERBOSE 日志 |
-| `v(String, String)` | 带 TAG 的 VERBOSE 日志 |
-| `d(String)` | DEBUG 日志 |
-| `d(String, String)` | 带 TAG 的 DEBUG 日志 |
-| `i(Object...)` | INFO 日志（支持多参数） |
-| `w(String)` | WARN 日志 |
-| `w(String, String)` | 带 TAG 的 WARN 日志 |
-| `e(String)` | ERROR 日志 |
-| `e(String, String)` | 带 TAG 的 ERROR 日志 |
-| `e(String, Throwable)` | ERROR 日志（带异常） |
-| `e(String, String, Throwable)` | 带 TAG 的 ERROR 日志（带异常） |
-| `json(String)` | 格式化输出 JSON |
-| `json(String, String)` | 带 TAG 格式化输出 JSON |
-| `xml(String)` | 格式化输出 XML |
-| `xml(String, String)` | 带 TAG 格式化输出 XML |
-
-### `com.dawn.library.LNetUtil` 网络工具类
-
-| 方法 | 说明 |
-|------|------|
-| `getNetworkType(Context)` | 获取网络类型 |
-| `isNetworkAvailable(Context)` | 判断网络是否可用 |
-| `isWiFi(Context)` | 判断是否为 WiFi 连接 |
-| `openNetSetting(Activity)` | 打开网络设置界面 |
-| `setWifiEnabled(Context, boolean)` | 设置 WiFi 开关状态 |
-| `ping(String, int, StringBuffer)` | Ping 测试（详细） |
-| `getNetworkTypeName(Context)` | 获取网络类型名称 |
-| `isMobileNetwork(Context)` | 判断是否为移动网络 |
-| `getWifiSignalStrength(Context)` | 获取 WiFi 信号强度 |
-| `getCurrentWifiName(Context)` | 获取当前 WiFi 名称 |
-| `getLocalIPAddress(Context)` | 获取本机 IP 地址 |
-| `simplePing(String)` | 简单 Ping 测试 |
-| `isPortReachable(String, int, int)` | 检查端口连通性 |
-| `getMacAddress()` | 获取 MAC 地址 |
-
 ### `com.dawn.library.LNumeralUtil` 数字工具类
 
 | 方法 | 说明 |
@@ -382,16 +314,6 @@ dependencies {
 | `openDialer(Context, String)` | 打开拨号界面 |
 | `sendSMS(Context, String, String)` | 发送短信 |
 
-### `com.dawn.library.LToastUtil` Toast工具类
-
-| 方法 | 说明 |
-|------|------|
-| `showShort(Context, String)` | 短时间显示 Toast |
-| `showShort(Context, int)` | 短时间显示 Toast（资源 ID） |
-| `showLong(Context, String)` | 长时间显示 Toast |
-| `showLong(Context, int)` | 长时间显示 Toast（资源 ID） |
-| `cancel()` | 取消当前 Toast |
-
 ### `com.dawn.library.LValidateUtil` 验证工具类
 
 | 方法 | 说明 |
@@ -418,10 +340,4 @@ dependencies {
 |------|------|
 | `unzip(String, String)` | 解压 zip 文件到指定目录 |
 
-### `com.dawn.library.RxTask` RxJava线程调度工具类
 
-| 方法 | 说明 |
-|------|------|
-| `doOnIOThread(Runnable)` | 在 IO 线程执行任务 |
-| `doOnMainThread(Runnable)` | 在主线程执行任务 |
-| `countdown(long, CountdownCallback)` | 倒计时 |

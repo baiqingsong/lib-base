@@ -31,10 +31,6 @@ dependencies {
     implementation files('libs/lite-orm-1.9.1.jar')
     api 'com.google.code.gson:gson:2.10.1'
 
-    // RxJava3 (RxTask依赖)
-    api 'io.reactivex.rxjava3:rxjava:3.1.8'
-    api 'io.reactivex.rxjava3:rxandroid:3.0.2'
-
     // 文件工具类（compileOnly，不打包到 AAR，使用方需自行引入）
     compileOnly 'com.github.baiqingsong:lib-file:1.0.2'
 }
